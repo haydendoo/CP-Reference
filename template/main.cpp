@@ -107,32 +107,36 @@ template<class A, size_t S> void read(array<A, S>& x) {
 		read(a);
 }
 
-string to_string(char c) {
+string to_string(const char c) {
 	return string(1, c);
 }
-string to_string(bool b) {
+string to_string(const bool b) {
 	return b?"YES":"NO";
 }
 string to_string(const char* s) {
 	return string(s);
 }
-string to_string(string s) {
+string to_string(const string& s) {
 	return s;
 }
-string to_string(vt<bool> v) {
+string to_string(const vt<bool>& v) {
 	string res;
 	FOR(sz(v))
 		res+=char('0'+v[i]);
 	return res;
 }
+template<class T1, class T2>
+string to_string(const pair<T1, T2>& p) {
+	return to_string(p.first) + ' '  + to_string(p.second);
+} 
 
-template<size_t S> string to_string(bitset<S> b) {
+template<size_t S> string to_string(const bitset<S>& b) {
 	string res;
 	FOR(S)
 		res+=char('0'+b[i]);
 	return res;
 }
-template<class T> string to_string(T v) {
+template<class T> string to_string(const T& v) {
     bool f=1;
     string res;
     EACH(x, v) {
@@ -143,7 +147,7 @@ template<class T> string to_string(T v) {
 	}
     return res;
 }
-template<class A> void write(A x) {
+template<class A> void write(const A& x) {
 	cout << to_string(x);
 }
 template<class H, class... T> void write(const H& h, const T&... t) { 
@@ -218,7 +222,7 @@ const int d8i[8]={-1, -1, 0, 1, 1, 1, 0, -1}, d8j[8]={0, 1, 1, 1, 0, -1, -1, -1}
 #define eb emplace_back
 typedef pair<int,int> pi;
 
-const int mxN=1e6+5, mod=1e9+7;
+const int mxN=1e6+1, mod=1e9+7;
 
 void solve() {
 }
