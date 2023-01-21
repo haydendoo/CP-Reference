@@ -46,6 +46,7 @@ template <typename K, typename V>using pbds_multimap = tree<K, V, less_equal<K>,
 #define pb push_back
 #define all(c) (c).begin(), (c).end()
 #define sz(x) (int)(x).size()
+#define FILL(x, a) memset(x, a, sizeof(x))
 
 #define F_OR(i, a, b, s) for (int i=(a); (s)>0?i<(b):i>(b); i+=(s))
 #define F_OR1(e) F_OR(i, 0, e, 1)
