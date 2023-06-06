@@ -2,6 +2,9 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// #define _DEBUG
+// #define _FASTIO
+
 #define ll long long
 #define ld long double
 #define ar array
@@ -83,9 +86,30 @@ ll LASTTRUE(function<bool(ll)> f, ll lb, ll rb) {
 
 template<class A> void read(vt<A>& v);
 template<class A, size_t S> void read(ar<A, S>& a);
+
+#ifdef _WIN32
+#define getchar_unlocked() _getchar_nolock()
+#endif
+
+inline int readint() {
+    int x=0; char ch=getchar_unlocked(); bool s=1;
+    while(ch<'0'||ch>'9'){if(ch=='-')s=0;ch=getchar_unlocked();}
+    while(ch>='0'&&ch<='9'){x=(x<<3)+(x<<1)+ch-'0';ch=getchar_unlocked();}
+    return s?x:-x;
+} 
+
 template<class T> void read(T& x) {
 	cin >> x;
 }
+
+void read(int &x) {
+	#ifdef _FASTIO
+	x=readint();
+	#else 
+	cin >> x;
+	#endif
+} 
+
 void read(double& d) {
 	string t;
 	read(t);
@@ -207,35 +231,24 @@ template<class T, class U> void vti(vt<T> &v, U x, size_t n, size_t m...) {
 		vti(a, x, m);
 }
 
-#ifdef _WIN32
-#define getchar_unlocked() _getchar_nolock()
-#endif
-
-inline int readint() {
-    int x=0; char ch=getchar_unlocked(); bool s=1;
-    while(ch<'0'||ch>'9'){if(ch=='-')s=0;ch=getchar_unlocked();}
-    while(ch>='0'&&ch<='9'){x=(x<<3)+(x<<1)+ch-'0';ch=getchar_unlocked();}
-    return s?x:-x;
-}
-
 const int d4i[4]={-1, 0, 1, 0}, d4j[4]={0, 1, 0, -1};
 const int d8i[8]={-1, -1, 0, 1, 1, 1, 0, -1}, d8j[8]={0, 1, 1, 1, 0, -1, -1, -1};
 
 #define eb emplace_back
 typedef pair<int,int> pi;
 
-const int mxN=1e6+1, mod=1e9+7;
+const int mxN=1e5+1, mod=998244353;
 
 void solve() {
-}
+} 
 
 signed main() {
 	ios::sync_with_stdio(0);
 	cin.tie(0);
-
+	
 	int t=1;
 	//read(t);
 	FOR(t) {
 		solve();
 	}
-}
+} 
